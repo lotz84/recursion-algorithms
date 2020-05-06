@@ -1,0 +1,81 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 21ad7a629180694f0c2b428e63ce3aefb9549ae80db4d746969c0cead077a1d8
+
+name:           recursion-algorithms
+version:        0.0.0
+homepage:       https://github.com/lotz84/recursion-algorithms#readme
+bug-reports:    https://github.com/lotz84/recursion-algorithms/issues
+copyright:      2020 Tatsuya Hirose
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/lotz84/recursion-algorithms
+
+library
+  exposed-modules:
+      Algorithms.List.BasicOperations.Filter
+      Algorithms.List.BasicOperations.Iterate
+      Algorithms.List.BasicOperations.Length
+      Algorithms.List.BasicOperations.Map
+      Algorithms.List.BasicOperations.Reverse
+      Algorithms.List.BasicOperations.TakeWhile
+      Algorithms.List.BasicOperations.Zip
+      Algorithms.List.EditDistance
+      Algorithms.List.LongestCommonSubsequence
+      Algorithms.List.Sorting.InsertionSort
+      Algorithms.List.Sorting.SelectionSort
+      Algorithms.Nat.BasicOperations.Add
+      Algorithms.Nat.BasicOperations.Factorial
+      Algorithms.Nat.BasicOperations.Product
+      Algorithms.Nat.Fibonacci
+      DataStructures.List
+      DataStructures.Nat
+      DataStructures.Tree
+      RecursionSchemes.Extra
+  other-modules:
+      Paths_recursion_algorithms
+  hs-source-dirs:
+      docs
+  default-extensions: BlockArguments LambdaCase
+  build-depends:
+      base >=4.7 && <5
+    , comonad
+    , free
+    , recursion-schemes
+  default-language: Haskell2010
+
+executable preprocess
+  main-is: Preprocess.hs
+  other-modules:
+      Paths_recursion_algorithms
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , cmark-gfm
+    , directory
+    , filepath
+    , text
+  default-language: Haskell2010
+
+test-suite recursion-algorithms-test
+  type: exitcode-stdio-1.0
+  main-is: Doctest.hs
+  other-modules:
+      Paths_recursion_algorithms
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , doctest
+  default-language: Haskell2010

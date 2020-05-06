@@ -1,0 +1,42 @@
+name:      recursion-algorithms
+github:    "lotz84/recursion-algorithms"
+license:   BSD3
+copyright: "2020 Tatsuya Hirose"
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: docs
+  default-extensions:
+  - BlockArguments
+  - LambdaCase
+  dependencies:
+  - comonad
+  - free
+  - recursion-schemes
+
+executables:
+  preprocess:
+    main:        Preprocess.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - cmark-gfm
+    - directory
+    - filepath
+    - text
+
+tests:
+  recursion-algorithms-test:
+    main:        Doctest.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - doctest
