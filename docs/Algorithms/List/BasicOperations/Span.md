@@ -25,6 +25,6 @@ spanPara :: (a -> Bool) -> [a] -> ([a], [a])
 spanPara p = para phi
   where
     phi = \ case
-	  Nil            -> ([], [])
+      Nil            -> ([], [])
       Cons a (as, b) -> if p a then first (a :) b else ([], a : as)
 ```
