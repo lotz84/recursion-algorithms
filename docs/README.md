@@ -44,6 +44,11 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
     - [iterate](Algorithms/List/BasicOperations/Iterate.md)
     - [reverse](Algorithms/List/BasicOperations/Reverse.md)
     - [span](Algorithms/List/BasicOperations/Span.md)
+    - [subsequences](Algorithms/List/BasicOperations/Subsequences.md)
+    - [takeWhile](Algorithms/List/BasicOperations/TakeWhile.md)
+    - [dropWhile](Algorithms/List/BasicOperations/DropWhile.md)
+    - [inits](Algorithms/List/BasicOperations/Inits.md)
+    - [tails](Algorithms/List/BasicOperations/Tails.md)
   - [Edit Distance](Algorithms/List/EditDistance.md)
   - [Longest Common Subsequence](Algorithms/List/LongestCommonSubsequence.md)
   - Sorting
