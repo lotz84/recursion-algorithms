@@ -2,7 +2,7 @@
 
 
 ```hs
-module Algorithm.List.BasicOperations.GroupBy where
+module Algorithms.List.BasicOperations.GroupBy where
 
 import Control.Arrow (first)
 import Data.Functor.Foldable
