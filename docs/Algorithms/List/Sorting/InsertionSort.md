@@ -6,6 +6,8 @@ module Algorithms.List.Sorting.InsertionSort where
 import Control.Arrow ((&&&))
 
 import Data.Functor.Foldable
+
+import RecursionSchemes.Extra
 ```
 
 Insertion sort is an algorithm that inserts the elements of the list one by one into the sorted list. This can be written down in a straightforward manner using Catamorphism[^1].
@@ -54,6 +56,33 @@ insertionSortCataApo :: Ord a => [a] -> [a]
 insertionSortCataApo = cata $ apo (swop . fmap (id &&& project))
 ```
 
+You can also think of a monadic insertion sort. This will be used to implement permutations[^3].
+
+```hs
+insertByParaM :: Monad m => (a -> a -> m Bool) -> a -> [a] -> m [a]
+insertByParaM cmp x = para \case
+                        Nil -> pure [x]
+                        Cons y (xs, ys) -> do
+                          flg <- cmp x y
+                          if flg then pure (x:y:xs) else (y:) <$> ys
+
+-- | >>> sortByCataM (\x y -> print (x, y) >> pure (x < y)) [3, 1, 4, 1, 5]
+-- (1,5)
+-- (4,1)
+-- (4,5)
+-- (1,1)
+-- (1,4)
+-- (3,1)
+-- (3,1)
+-- (3,4)
+-- [1,1,3,4,5]
+sortByCataM :: Monad m => (a -> a -> m Bool) -> [a] -> m [a]
+sortByCataM cmp = cataM \case
+                    Nil -> return []
+                    Cons x xs -> insertByParaM cmp x xs
+```
+
 ## References
 [1] Augusteijn, Lex. "Sorting morphisms." International School on Advanced Functional Programming. Springer, Berlin, Heidelberg, 1998.  
 [2] Hinze, Ralf, et al. "Sorting with bialgebras and distributive laws." Proceedings of the 8th ACM SIGPLAN workshop on Generic programming. 2012.
+[3] [Monadic versions · Issue #5 · vmchale/recursion_schemes](https://github.com/vmchale/recursion_schemes/issues/5)
