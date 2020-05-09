@@ -33,3 +33,19 @@ groupByAna eq = ana psi
       []   -> Nil
       x:xs -> uncurry Cons (first (x :) (span (eq x) xs))
 ```
+And we can also implement ``groupBy`` as an instance of catamorphism. [*](https://github.com/lotz84/recursion-algorithms/pull/2#issuecomment-626012637)
+
+```hs
+{- | >>> groupByCata (==) "Mississippi"
+["M","i","ss","i","ss","i","pp","i"]
+-}
+groupByCata :: (a -> a -> Bool) -> [a] -> [[a]]
+groupByCata g = cata alg
+  where
+    alg = \ case
+      Nil           -> []
+      Cons x []     -> [[x]]
+      Cons x (ys@(y:_):yss)
+        | g x y     -> (x:ys):yss
+        | otherwise -> [x]:ys:yss
+```
