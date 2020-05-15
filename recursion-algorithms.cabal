@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0b3675dbe961ee43ed5f062766bab3213dcddd6e82c0ad71ef6c33a9a7ca07e3
+-- hash: ebae868b9aa28c0733a50375a5d88d1792d2c201e839584eed7df39002faeb77
 
 name:           recursion-algorithms
 version:        0.0.0
@@ -21,17 +21,17 @@ source-repository head
 
 library
   exposed-modules:
-      Algorithms.List.BasicOperations.DropWhile
       Algorithms.List.BasicOperations.Filter
+      Algorithms.List.BasicOperations.GroupBy
       Algorithms.List.BasicOperations.Inits
       Algorithms.List.BasicOperations.Iterate
       Algorithms.List.BasicOperations.Length
       Algorithms.List.BasicOperations.Map
       Algorithms.List.BasicOperations.Permutations
       Algorithms.List.BasicOperations.Reverse
+      Algorithms.List.BasicOperations.Scanr
       Algorithms.List.BasicOperations.Span
       Algorithms.List.BasicOperations.Subsequences
-      Algorithms.List.BasicOperations.Tails
       Algorithms.List.BasicOperations.TakeWhile
       Algorithms.List.BasicOperations.Zip
       Algorithms.List.EditDistance

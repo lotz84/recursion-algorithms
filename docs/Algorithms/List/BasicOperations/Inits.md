@@ -1,4 +1,4 @@
-# inits
+# inits / tails
 
 ```hs
 module Algorithms.List.BasicOperations.Inits where
@@ -13,6 +13,15 @@ import Algorithms.List.BasicOperations.TakeWhile
 -- ["","a","ab","abc"]
 inits :: [a] -> [[a]]
 inits = takeWhileCataM (const [False, True])
+```
+
+`tails` is a function that enumerates all contiguous partial lists from the end of a given list[^1].
+
+```hs
+-- | >>> tails "abc"
+-- ["abc","bc","c",""]
+tails :: [a] -> [[a]]
+tails = dropWhileParaM (const [False, True])
 ```
 
 ## References
