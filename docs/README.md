@@ -52,6 +52,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
     - [inits / tails](Algorithms/List/BasicOperations/Inits.md)
   - [Edit Distance](Algorithms/List/EditDistance.md)
   - [Longest Common Subsequence](Algorithms/List/LongestCommonSubsequence.md)
+  - [Run Length Conversion](Algorithms/List/RunLengthConversion.md)
   - Sorting
     - [Insertion Sort](Algorithms/List/Sorting/InsertionSort.md)
     - [Selection Sort](Algorithms/List/Sorting/SelectionSort.md)
