@@ -13,12 +13,6 @@ jobs:
           name: Resolve/Update Dependencies
           command: stack setup
       - run:
-          name: Build preprocess
-          command: stack build
-      - run:
-          name: Run preprocess
-          command: stack exec preprocess
-      - run:
           name: Run tests
           command: stack test
       - save_cache:

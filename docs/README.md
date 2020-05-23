@@ -59,7 +59,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
 - [Extra Recursion Schemes](RecursionSchemes/Extra.md)
 
 ## How it works
-All algorithms have been tested by [doctest](https://hackage.haskell.org/package/doctest). To make the code test compatible with the markdown used in GitHub Pages, there's a process called "preprocess" that converts the markdown to Haskell code. As you can see from the file ".circleci/config.yml", the whole process is done on CircleCI and the code merged into the master is always guaranteed to be in a tested state.
+All algorithms have been tested by [doctest](https://hackage.haskell.org/package/doctest). To make the code test compatible with the markdown used in GitHub Pages, there's a conversion process from markdown to Haskell in the stack test.
 
 ## How to get involved
 Please, feel free to send a PR with

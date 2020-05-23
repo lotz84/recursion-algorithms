@@ -1,29 +1,17 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Main where
+module Docs2Hs where
 
-import Control.Monad (forM, forM_, when)
+import Control.Monad (forM_, when)
 import Data.Maybe (catMaybes)
 
 import CMarkGFM
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
-import System.Directory
-import System.FilePath
+import System.FilePath (splitExtension)
 
-
--- | Manipulate subdirectories recursively to enumerate only files
-listDirectoryRecursively :: FilePath -> IO [FilePath]
-listDirectoryRecursively prepath = do
-  ps <- listDirectory prepath
-  fmap concat . forM ps $ \path -> do
-    let fullpath = prepath </> path
-    isDir <- doesDirectoryExist fullpath
-    if isDir
-       then listDirectoryRecursively fullpath
-       else pure [fullpath]
-
+import Directory (listDirectoryRecursively)
 
 -- | Function to manipulate a Node recursively while transforming the NodeType
 mapNode :: (NodeType -> a) -> Node -> [a]
@@ -43,9 +31,11 @@ md2hs = aggregate . catMaybes . mapNode getHsText . commonmarkToNode [] []
     aggregate ts = Just (T.unlines ts)
 
 
-main :: IO ()
-main = do
-  ps <- listDirectoryRecursively "docs"
+-- | Converts all markdown files under the specified folder to a haskell file.
+-- This process searches the folder recursively.
+docs2Hs :: FilePath -> IO ()
+docs2Hs dir = do
+  ps <- listDirectoryRecursively dir
   forM_ ps $ \path ->
     let (filename, ext) = splitExtension path
      in when (ext == ".md") $ do

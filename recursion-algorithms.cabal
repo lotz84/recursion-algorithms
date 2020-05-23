@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bd091e02a61b98ffd0bbf74cd2d412aaf90ba36e86122fb8a22c909970882303
+-- hash: 242153662d8e5fe5e94d3aade76d8a8ec56973f5460b03915ec57071e98116a8
 
 name:           recursion-algorithms
 version:        0.0.0
@@ -59,30 +59,22 @@ library
     , recursion-schemes
   default-language: Haskell2010
 
-executable preprocess
-  main-is: Preprocess.hs
-  other-modules:
-      Paths_recursion_algorithms
-  hs-source-dirs:
-      app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5
-    , cmark-gfm
-    , directory
-    , filepath
-    , text
-  default-language: Haskell2010
-
 test-suite recursion-algorithms-test
   type: exitcode-stdio-1.0
   main-is: Doctest.hs
   other-modules:
+      Directory
+      Docs2Hs
+      RemoveHs
       Paths_recursion_algorithms
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , cmark-gfm
+    , directory
     , doctest
+    , filepath
+    , text
   default-language: Haskell2010

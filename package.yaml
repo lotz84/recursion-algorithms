@@ -16,20 +16,6 @@ library:
   - free
   - recursion-schemes
 
-executables:
-  preprocess:
-    main:        Preprocess.hs
-    source-dirs: app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - cmark-gfm
-    - directory
-    - filepath
-    - text
-
 tests:
   recursion-algorithms-test:
     main:        Doctest.hs
@@ -39,4 +25,8 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
+    - cmark-gfm
+    - directory
     - doctest
+    - filepath
+    - text
