@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 242153662d8e5fe5e94d3aade76d8a8ec56973f5460b03915ec57071e98116a8
+-- hash: 389021a75625c9626102987a98006b3f009ec2c4407aa21d8e22dcc9a7e85774
 
 name:           recursion-algorithms
 version:        0.0.0
@@ -20,37 +20,8 @@ source-repository head
   location: https://github.com/lotz84/recursion-algorithms
 
 library
-  exposed-modules:
-      Algorithms.List.BasicOperations.Filter
-      Algorithms.List.BasicOperations.GroupBy
-      Algorithms.List.BasicOperations.Inits
-      Algorithms.List.BasicOperations.Iterate
-      Algorithms.List.BasicOperations.Length
-      Algorithms.List.BasicOperations.Map
-      Algorithms.List.BasicOperations.Permutations
-      Algorithms.List.BasicOperations.Reverse
-      Algorithms.List.BasicOperations.Scanr
-      Algorithms.List.BasicOperations.Span
-      Algorithms.List.BasicOperations.Subsequences
-      Algorithms.List.BasicOperations.TakeWhile
-      Algorithms.List.BasicOperations.Zip
-      Algorithms.List.EditDistance
-      Algorithms.List.LongestCommonSubsequence
-      Algorithms.List.RunLengthConversion
-      Algorithms.List.Sorting.InsertionSort
-      Algorithms.List.Sorting.SelectionSort
-      Algorithms.Nat.BasicOperations.Add
-      Algorithms.Nat.BasicOperations.Factorial
-      Algorithms.Nat.BasicOperations.Product
-      Algorithms.Nat.Fibonacci
-      DataStructures.List
-      DataStructures.Nat
-      DataStructures.Tree
-      RecursionSchemes.Extra
   other-modules:
       Paths_recursion_algorithms
-  hs-source-dirs:
-      docs
   default-extensions: BlockArguments LambdaCase
   build-depends:
       base >=4.7 && <5
