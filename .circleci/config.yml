@@ -8,7 +8,7 @@ jobs:
       - restore_cache:
           name: Restore Cached Dependencies
           keys:
-            - recursion-algorithms-{{ checksum "recursion-algorithms.cabal" }}-{{ checksum "stack.yaml" }}
+            - recursion-algorithms-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}
       - run:
           name: Resolve/Update Dependencies
           command: stack setup
@@ -17,7 +17,7 @@ jobs:
           command: stack test
       - save_cache:
           name: Cache Dependencies
-          key: recursion-algorithms-{{ checksum "recursion-algorithms.cabal" }}-{{ checksum "stack.yaml" }}
+          key: recursion-algorithms-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}
           paths:
             - "/root/.stack"
             - ".stack-work"

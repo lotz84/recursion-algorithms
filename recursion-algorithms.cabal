@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 389021a75625c9626102987a98006b3f009ec2c4407aa21d8e22dcc9a7e85774
+-- hash: 40a961129a7915d13fe06d5f3b33862aef879626bd1833bf7520bb61502cf434
 
 name:           recursion-algorithms
 version:        0.0.0
@@ -22,7 +22,6 @@ source-repository head
 library
   other-modules:
       Paths_recursion_algorithms
-  default-extensions: BlockArguments LambdaCase
   build-depends:
       base >=4.7 && <5
     , comonad

@@ -10,4 +10,8 @@ main :: IO ()
 main = do
     removeHs "docs"
     docs2Hs "docs"
-    doctest ["-XBlockArguments", "-XLambdaCase", "docs"]
+    doctest [ "-XBlockArguments"
+            , "-XDeriveFunctor"
+            , "-XLambdaCase"
+            , "docs"
+            ]

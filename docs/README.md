@@ -56,6 +56,10 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
   - Sorting
     - [Insertion Sort](Algorithms/List/Sorting/InsertionSort.md)
     - [Selection Sort](Algorithms/List/Sorting/SelectionSort.md)
+- Tree
+  - Basic Operations
+    - [depth](Algorithms/Tree/BasicOperations/Depth.md)
+  - [Depth First Search](Algorithms/Tree/DepthFirstSearch.md)
 - [Extra Recursion Schemes](RecursionSchemes/Extra.md)
 
 ## How it works
