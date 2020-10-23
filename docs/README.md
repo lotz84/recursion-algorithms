@@ -34,6 +34,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
     - [add](Algorithms/Nat/BasicOperations/Add.md)
     - [product](Algorithms/Nat/BasicOperations/Product.md)
     - [factorial](Algorithms/Nat/BasicOperations/Factorial.md)
+    - [lessThan](Algorithms/Nat/BasicOperations/LessThan.md)
   - [Fibonacci Numbers](Algorithms/Nat/Fibonacci.md)
 - List
   - Basic Operations
@@ -48,6 +49,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
     - [subsequences](Algorithms/List/BasicOperations/Subsequences.md)
     - [permutations](Algorithms/List/BasicOperations/Permutations.md)
     - [scanr / scanl](Algorithms/List/BasicOperations/Scanr.md)
+    - [take](Algorithms/List/BasicOperations/Take.md)
     - [takeWhile / dropWhile](Algorithms/List/BasicOperations/TakeWhile.md)
     - [inits / tails](Algorithms/List/BasicOperations/Inits.md)
   - [Edit Distance](Algorithms/List/EditDistance.md)

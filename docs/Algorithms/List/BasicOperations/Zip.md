@@ -4,6 +4,8 @@
 module Algorithms.List.BasicOperations.Zip where
 
 import Data.Functor.Foldable
+
+import RecursionSchemes.Extra
 ```
 
 This implementation can be found in Meijer (1991)[^1].
@@ -16,6 +18,20 @@ zipAna = ana \case
            ([], _)      -> Nil
            (_, [])      -> Nil
            (a:as, b:bs) -> Cons (a, b) (as, bs)
+```
+
+Also zip can be implimented by using Multimorphism.
+
+```hs
+-- | >>> zipMMulti [1, 2, 3] "abc"
+-- [(1,'a'),(2,'b'),(3,'c')]
+zipMMulti :: [a] -> [b] -> [(a, b)]
+zipMMulti = mmulti phi
+  where
+  phi _ Nil         Nil         = []
+  phi _ Nil         (Cons _ _)  = []
+  phi _ (Cons _ _)  Nil         = []
+  phi f (Cons a as) (Cons b bs) = (a, b) : f as bs
 ```
 
 ## References

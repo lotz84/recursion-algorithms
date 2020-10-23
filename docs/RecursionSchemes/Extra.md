@@ -2,6 +2,7 @@
 
 ```hs
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE RankNTypes #-}
 module RecursionSchemes.Extra where
 
 import Control.Monad ((>=>))
@@ -22,8 +23,17 @@ dyna phi psi = extract . hylo ap psi
   where ap f = phi f :< f
 ```
 
+## Multimorphism
+
+Multimorphism is a recursion schemes that deals with the two recursive type at the same time[^2].
+
+```hs
+mmulti :: (Recursive f, Recursive g) => (forall a b. (a -> b -> c) -> Base f a -> Base g b -> c) -> f -> g -> c
+mmulti phi f g = phi (mmulti phi) (project f) (project g)
+```
+
 ## Monadic Recursion Schemes
-Monadic catamorphism[^2] can be implemented as a special case of ordinary catamorphism[^3].
+Monadic catamorphism[^3] can be implemented as a special case of ordinary catamorphism[^4].
 
 ```hs
 cataM :: (Traversable (Base t), Monad m, Recursive t)
@@ -42,5 +52,6 @@ paraM = para . (sequence . fmap sequence >=>)
 
 ## References
 [1] Kabanov, Jevgeni, and Varmo Vene. "Recursion schemes for dynamic programming." International Conference on Mathematics of Program Construction. Springer, Berlin, Heidelberg, 2006.  
-[2] Fokkinga, Maarten Maria. Monadic maps and folds for arbitrary datatypes. University of Twente, Department of Computer Science, 1994.  
-[3] [Suggestion: Add monadic variants of various ...morphism functions. · Issue #3 · ekmett/recursion-schemes](https://github.com/ekmett/recursion-schemes/issues/3)
+[2] Uustalu, Tarmo, and Varmo Vene. "Coding recursion a la Mendler." Department of Computer Science, Utrecht University. 2000.  
+[3] Fokkinga, Maarten Maria. Monadic maps and folds for arbitrary datatypes. University of Twente, Department of Computer Science, 1994.  
+[4] [Suggestion: Add monadic variants of various ...morphism functions. · Issue #3 · ekmett/recursion-schemes](https://github.com/ekmett/recursion-schemes/issues/3)
