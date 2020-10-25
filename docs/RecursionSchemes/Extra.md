@@ -32,8 +32,10 @@ mmulti :: (Recursive f, Recursive g) => (forall a b. (a -> b -> c) -> Base f a -
 mmulti phi f g = phi (mmulti phi) (project f) (project g)
 ```
 
+`mmulti` can also be implemented using Day convolution as type `(Day (Base f) (Base g) -> c) -> f -> g -> c`[^3].
+
 ## Monadic Recursion Schemes
-Monadic catamorphism[^3] can be implemented as a special case of ordinary catamorphism[^4].
+Monadic catamorphism[^4] can be implemented as a special case of ordinary catamorphism[^5].
 
 ```hs
 cataM :: (Traversable (Base t), Monad m, Recursive t)
@@ -53,5 +55,6 @@ paraM = para . (sequence . fmap sequence >=>)
 ## References
 [1] Kabanov, Jevgeni, and Varmo Vene. "Recursion schemes for dynamic programming." International Conference on Mathematics of Program Construction. Springer, Berlin, Heidelberg, 2006.  
 [2] Uustalu, Tarmo, and Varmo Vene. "Coding recursion a la Mendler." Department of Computer Science, Utrecht University. 2000.  
-[3] Fokkinga, Maarten Maria. Monadic maps and folds for arbitrary datatypes. University of Twente, Department of Computer Science, 1994.  
-[4] [Suggestion: Add monadic variants of various ...morphism functions. · Issue #3 · ekmett/recursion-schemes](https://github.com/ekmett/recursion-schemes/issues/3)
+[3] (sellout/yaya - Yaya.Fold#cata2)[https://github.com/sellout/yaya/blob/d75598e08b4ea85946857f7c0643811b858a9b2b/core/src/Yaya/Fold.hs#L178-L181]
+[4] Fokkinga, Maarten Maria. Monadic maps and folds for arbitrary datatypes. University of Twente, Department of Computer Science, 1994.  
+[5] [Suggestion: Add monadic variants of various ...morphism functions. · Issue #3 · ekmett/recursion-schemes](https://github.com/ekmett/recursion-schemes/issues/3)
