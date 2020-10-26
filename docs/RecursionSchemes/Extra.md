@@ -32,7 +32,7 @@ mmulti :: (Recursive f, Recursive g) => (forall a b. (a -> b -> c) -> Base f a -
 mmulti phi f g = phi (mmulti phi) (project f) (project g)
 ```
 
-`mmulti` can also be implemented using Day convolution as type `(Day (Base f) (Base g) -> c) -> f -> g -> c`[^3].
+`mmulti` can also be implemented using Day convolution as type `(Day (Base f) (Base g) c -> c) -> f -> g -> c`[^3].
 
 ## Monadic Recursion Schemes
 Monadic catamorphism[^4] can be implemented as a special case of ordinary catamorphism[^5].

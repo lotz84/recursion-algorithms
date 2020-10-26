@@ -38,6 +38,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
     - [factorial](Algorithms/Nat/BasicOperations/Factorial.md)
     - [lessThan](Algorithms/Nat/BasicOperations/LessThan.md)
   - [Fibonacci Numbers](Algorithms/Nat/Fibonacci.md)
+  - [Catalan Numbers](Algorithms/Nat/Catalan.md)
 - List
   - Basic Operations
     - [length](Algorithms/List/BasicOperations/Length.md)
