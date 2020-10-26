@@ -3,7 +3,12 @@
 ```hs
 module Algorithms.List.BasicOperations.Reverse where
 
+import qualified Control.Foldl as L
+
 import Data.Functor.Foldable
+
+import DataStructures.List
+import RecursionSchemes.Extra
 ```
 
 This implementation by cata can be found in Meijer (1991)[^1].
@@ -52,6 +57,16 @@ reverseAnaCata :: [a] -> [a]
 reverseAnaCata = ana $ cata (fmap embed . dist)
 ```
 
+`reverse` can also be implemented using Monoidal Catamorphism[^3].
+
+```hs
+-- | >>> reverseCat [1, 2, 3]
+-- [3,2,1]
+reverseCat :: [a] -> [a]
+reverseCat = cat listFold L.revList . refix
+```
+
 ## References
 [1] Meijer, Erik, Maarten Fokkinga, and Ross Paterson. "Functional programming with bananas, lenses, envelopes and barbed wire." Conference on Functional Programming Languages and Computer Architecture. Springer, Berlin, Heidelberg, 1991.  
-[2] Hinze, Ralf, et al. "Sorting with bialgebras and distributive laws." Proceedings of the 8th ACM SIGPLAN workshop on Generic programming. 2012.
+[2] Hinze, Ralf, et al. "Sorting with bialgebras and distributive laws." Proceedings of the 8th ACM SIGPLAN workshop on Generic programming. 2012.  
+[3] [Monoidal Catamorphisms \| Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/2020/06/15/monoidal-catamorphisms/)  

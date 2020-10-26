@@ -3,9 +3,12 @@
 ```hs
 module Algorithms.List.BasicOperations.Filter where
 
-import Data.Functor.Foldable
 import GHC.Natural
 
+import qualified Control.Foldl as L
+import Data.Functor.Foldable
+
+import DataStructures.List
 import RecursionSchemes.Extra
 ```
 
@@ -33,6 +36,16 @@ filterCataM p = cataM \case
                     pure if flg then x:xs else xs
 ```
 
+`filter` can also be implemented using Monoidal Catamorphism[^3].
+
+```hs
+-- | >>> filterCat odd [1, 2, 3]
+-- [1,3]
+filterCat :: (a -> Bool) -> [a] -> [a]
+filterCat p = cat listFold (L.prefilter p L.list) . refix
+```
+
 ## References
 [1] Meijer, Erik, Maarten Fokkinga, and Ross Paterson. "Functional programming with bananas, lenses, envelopes and barbed wire." Conference on Functional Programming Languages and Computer Architecture. Springer, Berlin, Heidelberg, 1991.  
-[2] [Monadic versions · Issue #5 · vmchale/recursion_schemes](https://github.com/vmchale/recursion_schemes/issues/5)
+[2] [Monadic versions · Issue #5 · vmchale/recursion_schemes](https://github.com/vmchale/recursion_schemes/issues/5)  
+[3] [Monoidal Catamorphisms \| Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/2020/06/15/monoidal-catamorphisms/)  

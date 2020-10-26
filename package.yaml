@@ -9,6 +9,7 @@ dependencies:
 library:
   dependencies:
   - comonad
+  - foldl
   - free
   - recursion-schemes
 

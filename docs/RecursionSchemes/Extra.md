@@ -1,14 +1,17 @@
 # Extra Recursion Schemes
 
 ```hs
+{-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE RankNTypes #-}
 module RecursionSchemes.Extra where
 
 import Control.Monad ((>=>))
+import Data.Bifunctor
 
 import Control.Comonad
 import Control.Comonad.Cofree
+import Control.Foldl
 import Data.Functor.Foldable
 ```
 
@@ -34,8 +37,19 @@ mmulti phi f g = phi (mmulti phi) (project f) (project g)
 
 `mmulti` can also be implemented using Day convolution as type `(Day (Base f) (Base g) c -> c) -> f -> g -> c`[^3].
 
+## Monoidal Catamorphism
+
+This idea was introduced by Bartosz Milewski as an extension of Foldl to RecursionSchemes[^4]. Here we use endomorphsm instead of monoids to match the implementation in the Foldl library.
+
+```hs
+type FoldAlgebra f = forall x. f (x -> x) (x -> x) -> (x -> x)
+
+cat :: (Bifunctor f, Functor (f a)) => FoldAlgebra f -> Fold a b -> Fix (f a) -> b
+cat falg (Fold step begin done) = done . ($ begin) . cata (falg . bimap (flip step) id)
+```
+
 ## Monadic Recursion Schemes
-Monadic catamorphism[^4] can be implemented as a special case of ordinary catamorphism[^5].
+Monadic catamorphism[^5] can be implemented as a special case of ordinary catamorphism[^6].
 
 ```hs
 cataM :: (Traversable (Base t), Monad m, Recursive t)
@@ -51,10 +65,10 @@ paraM :: (Recursive t, Monad m, Traversable (Base t))
 paraM = para . (sequence . fmap sequence >=>)
 ```
 
-
 ## References
 [1] Kabanov, Jevgeni, and Varmo Vene. "Recursion schemes for dynamic programming." International Conference on Mathematics of Program Construction. Springer, Berlin, Heidelberg, 2006.  
 [2] Uustalu, Tarmo, and Varmo Vene. "Coding recursion a la Mendler." Department of Computer Science, Utrecht University. 2000.  
 [3] [sellout/yaya - Yaya.Fold#cata2](https://github.com/sellout/yaya/blob/d75598e08b4ea85946857f7c0643811b858a9b2b/core/src/Yaya/Fold.hs#L178-L181)  
-[4] Fokkinga, Maarten Maria. Monadic maps and folds for arbitrary datatypes. University of Twente, Department of Computer Science, 1994.  
-[5] [Suggestion: Add monadic variants of various ...morphism functions. · Issue #3 · ekmett/recursion-schemes](https://github.com/ekmett/recursion-schemes/issues/3)
+[4] [Monoidal Catamorphisms \| Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/2020/06/15/monoidal-catamorphisms/)  
+[5] Fokkinga, Maarten Maria. Monadic maps and folds for arbitrary datatypes. University of Twente, Department of Computer Science, 1994.  
+[6] [Suggestion: Add monadic variants of various ...morphism functions. · Issue #3 · ekmett/recursion-schemes](https://github.com/ekmett/recursion-schemes/issues/3)

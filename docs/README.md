@@ -52,7 +52,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
     - [subsequences](Algorithms/List/BasicOperations/Subsequences.md)
     - [permutations](Algorithms/List/BasicOperations/Permutations.md)
     - [scanr / scanl](Algorithms/List/BasicOperations/Scanr.md)
-    - [take](Algorithms/List/BasicOperations/Take.md)
+    - [take / drop](Algorithms/List/BasicOperations/Take.md)
     - [takeWhile / dropWhile](Algorithms/List/BasicOperations/TakeWhile.md)
     - [inits / tails](Algorithms/List/BasicOperations/Inits.md)
   - [Edit Distance](Algorithms/List/EditDistance.md)

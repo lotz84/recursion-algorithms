@@ -3,8 +3,10 @@
 ```hs
 module Algorithms.List.BasicOperations.TakeWhile where
 
+import qualified Control.Foldl as L
 import Data.Functor.Foldable
 
+import DataStructures.List
 import RecursionSchemes.Extra
 ```
 
@@ -66,6 +68,16 @@ dropWhileParaM p = para \case
       if flg then ys else pure (x:xs)
 ```
 
+`dropWhile` can also be implemented using Monoidal Catamorphism[^3].
+
+```hs
+-- | >>> dropWhileCat odd [3, 1, 4, 1, 5]
+-- [4,1,5]
+dropWhileCat :: (a -> Bool) -> [a] -> [a]
+dropWhileCat p = cat listFold (L.predropWhile p L.list) . refix
+```
+
 ## References
 [1] Meijer, Erik, Maarten Fokkinga, and Ross Paterson. "Functional programming with bananas, lenses, envelopes and barbed wire." Conference on Functional Programming Languages and Computer Architecture. Springer, Berlin, Heidelberg, 1991.  
-[2] [Monadic versions · Issue #5 · vmchale/recursion_schemes](https://github.com/vmchale/recursion_schemes/issues/5)
+[2] [Monadic versions · Issue #5 · vmchale/recursion_schemes](https://github.com/vmchale/recursion_schemes/issues/5)  
+[3] [Monoidal Catamorphisms \| Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/2020/06/15/monoidal-catamorphisms/)  

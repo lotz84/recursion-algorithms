@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 40a961129a7915d13fe06d5f3b33862aef879626bd1833bf7520bb61502cf434
+-- hash: fcf51f82bb48de70f2d6982a2ea7d9b0fc081ed38568e566fb1d3ef2642ccacc
 
 name:           recursion-algorithms
 version:        0.0.0
@@ -25,6 +25,7 @@ library
   build-depends:
       base >=4.7 && <5
     , comonad
+    , foldl
     , free
     , recursion-schemes
   default-language: Haskell2010
