@@ -28,9 +28,35 @@ takeMMulti = mmulti phi
   phi f (Just a) (Cons b c) = b : f a c
 ```
 
+It can be implemented using catamorphism through the adjoint fold about the adjunction of -×A -| -^A [^2].
+
+```hs
+-- | >>> takeCata 3 [1..10]
+-- [1,2,3]
+takeCata :: Natural -> [a] -> [a]
+takeCata = cata f
+  where
+  f Nothing  _      = []
+  f _        []     = []
+  f (Just g) (x:xs) = x : g xs
+```
+
 ## drop
 
-`drop` can be implemented using Monoidal Catamorphism[^2].
+`drop` can also be implemented using catamorphism through the adjoint fold[^2].
+
+```hs
+-- | >>> dropCata 3 [1..5]
+-- [4,5]
+dropCata :: Natural -> [a] -> [a]
+dropCata = cata f
+  where
+  f Nothing  xs     = xs
+  f _        []     = []
+  f (Just g) (x:xs) = g xs
+```
+
+`drop` can be implemented using Monoidal Catamorphism[^3].
 
 ```hs
 -- | >>> dropCat 3 [1..5]
@@ -41,4 +67,5 @@ dropCat n = cat listFold (L.drop n L.list) . refix
 
 ## References
 [1] Uustalu, Tarmo, and Varmo Vene. "Coding recursion a la Mendler." Department of Computer Science, Utrecht University. 2000.  
-[2] [Monoidal Catamorphisms \| Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/2020/06/15/monoidal-catamorphisms/)  
+[2] Hinze, Ralf. "Adjoint folds and unfolds." International Conference on Mathematics of Program Construction. Springer, Berlin, Heidelberg, 2010.  
+[3] [Monoidal Catamorphisms \| Bartosz Milewski's Programming Cafe](https://bartoszmilewski.com/2020/06/15/monoidal-catamorphisms/)  
