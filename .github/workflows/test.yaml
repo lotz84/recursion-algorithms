@@ -16,5 +16,5 @@ jobs:
           enable-stack: true
           stack-no-global: true
           stack-setup-ghc: true
-      - run: stack build
+      - run: stack init
       - run: stack test
