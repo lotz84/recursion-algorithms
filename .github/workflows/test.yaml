@@ -1,0 +1,16 @@
+name: Test
+on: push
+jobs:
+  doctest:
+    name: Run all doctest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: .stack-work
+          key: recursion-algorithms-{{ hashFiles("package.yaml") }}-{{ hashFiles("stack.yaml") }}
+      - uses: actions/setup-haskell@v1.1
+        with:
+          enable-stack: true
+          stack-no-global: true
+          stack-setup-ghc: true
+      - run: stack test
