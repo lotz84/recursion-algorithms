@@ -14,8 +14,8 @@ jobs:
       - uses: haskell/actions/setup@v1
         with:
           enable-stack: true
-          stack-no-global: true
-          stack-setup-ghc: true
-      - run: ls
-      - run: pwd
+      - run: |
+          pwd
+          ls
+      - run: stack setup
       - run: stack test
