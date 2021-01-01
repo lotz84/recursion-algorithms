@@ -10,7 +10,7 @@ jobs:
           path: |
             ~/.stack
             .stack-work
-          key: recursion-algorithms-${{ hashFiles("package.yaml") }}-${{ hashFiles("stack.yaml") }}
+          key: recursion-algorithms-${{ hashFiles('package.yaml') }}-${{ hashFiles('stack.yaml') }}
       - uses: haskell/actions/setup@v1
         with:
           enable-stack: true
