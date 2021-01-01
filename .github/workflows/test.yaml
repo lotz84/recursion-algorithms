@@ -16,5 +16,5 @@ jobs:
           path: |
             ~/.stack
             .stack-work
-          key: recursion-algorithms-${{ hashFiles("package.yaml") }}-${{ hashFiles("stack.yaml") }}
+          key: recursion-algorithms-${{ hashFiles('package.yaml') }}-${{ hashFiles('stack.yaml') }}
       - run: stack test
