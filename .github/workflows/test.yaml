@@ -17,4 +17,5 @@ jobs:
           stack-no-global: true
           stack-setup-ghc: true
       - run: ls
+      - run: pwd
       - run: stack test
