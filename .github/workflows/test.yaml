@@ -7,12 +7,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          path: .stack-work
-          key: recursion-algorithms-{{ hashFiles("package.yaml") }}-{{ hashFiles("stack.yaml") }}
+          path: |
+            ~/.stack
+            .stack-work
+          key: recursion-algorithms-${{ hashFiles("package.yaml") }}-${{ hashFiles("stack.yaml") }}
       - uses: haskell/actions/setup@v1
         with:
           enable-stack: true
           stack-no-global: true
           stack-setup-ghc: true
-      - run: stack setup
+      - run: stack build
       - run: stack test
