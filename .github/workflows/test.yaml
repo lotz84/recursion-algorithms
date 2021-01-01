@@ -3,6 +3,7 @@ on: push
 jobs:
   doctest:
     name: Run all doctest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
