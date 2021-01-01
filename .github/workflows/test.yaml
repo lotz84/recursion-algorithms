@@ -12,8 +12,9 @@ jobs:
           stack-no-global: true
           stack-setup-ghc: true
       - uses: actions/cache@v2
-        path: |
-          ~/.stack
-          .stack-work
-        key: recursion-algorithms-${{ hashFiles("package.yaml") }}-${{ hashFiles("stack.yaml") }}
+        with:
+          path: |
+            ~/.stack
+            .stack-work
+          key: recursion-algorithms-${{ hashFiles("package.yaml") }}-${{ hashFiles("stack.yaml") }}
       - run: stack test
