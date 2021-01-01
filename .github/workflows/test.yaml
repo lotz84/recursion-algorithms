@@ -9,8 +9,11 @@ jobs:
       - uses: haskell/actions/setup@v1
         with:
           enable-stack: true
-      - run: |
-          pwd
-          ls
-      - run: stack setup
+          stack-no-global: true
+          stack-setup-ghc: true
+      - uses: actions/cache@v2
+        path: |
+          ~/.stack
+          .stack-work
+        key: recursion-algorithms-${{ hashFiles("package.yaml") }}-${{ hashFiles("stack.yaml") }}
       - run: stack test
