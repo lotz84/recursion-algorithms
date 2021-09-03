@@ -28,7 +28,7 @@ takeMMulti = mmulti phi
   phi f (Just a) (Cons b c) = b : f a c
 ```
 
-It can be implemented using catamorphism through the adjoint fold about the adjunction of -×A -| -^A [^2].
+It can be implemented using catamorphism through the adjoint fold about the adjunction of -×A -\| -^A [^2].
 
 ```hs
 -- | >>> takeCata 3 [1..10]
