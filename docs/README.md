@@ -29,6 +29,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
 - [Nat](DataStructures/Nat.md)
 - [List](DataStructures/List.md)
 - [Tree](DataStructures/Tree.md)
+- [Levels](DataStructures/Levels.md)
 
 ### Algorithms
 - Natural Number
@@ -65,6 +66,7 @@ This repository uses [recursion-schemes](https://hackage.haskell.org/package/rec
   - Basic Operations
     - [depth](Algorithms/Tree/BasicOperations/Depth.md)
   - [Depth First Search](Algorithms/Tree/DepthFirstSearch.md)
+  - [Breadth First Search](Algorithms/Tree/BreadthFirstSearch.md)
 - [Extra Recursion Schemes](RecursionSchemes/Extra.md)
 
 ## How it works
