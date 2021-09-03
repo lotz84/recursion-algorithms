@@ -6,7 +6,7 @@ module DataStructures.Levels where
 import Control.Applicative
 ```
 
-`Levels` is not recursive data type, but it is important to implement [breadth-first search](Algorithms/Tree/BreadthFirstSearch.md). Implementations in here reference to [Kidne and Wu 2021][^1].
+`Levels` is not recursive data type, but it is important to implement [breadth-first search](/recursion-algorithms/Algorithms/Tree/BreadthFirstSearch.html). Implementations in here reference to [Kidne and Wu 2021][^1].
 
 ```hs
 newtype Levels a = Levels [[a]]
@@ -45,4 +45,4 @@ instance Monad Levels where
 ```
 
 ## References
-[1] Donnacha Oisín Kidney and Nicolas Wu. 2021. Algebras for weighted search. Proc. ACM Program. Lang. 5, ICFP, Article 72 (August 2021), 30 pages. DOI:https://doi.org/10.1145/3473577
+[1] Donnacha Oisín Kidney and Nicolas Wu. 2021. Algebras for weighted search. Proc. ACM Program. Lang. 5, ICFP, Article 72 (August 2021), 30 pages. DOI:<https://doi.org/10.1145/3473577>
