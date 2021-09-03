@@ -15,7 +15,7 @@
 ```
 
 [![GitHub](https://img.shields.io/github/license/lotz84/recursion-algorithms)](LICENSE)
-[![CircleCI](https://img.shields.io/circleci/build/gh/lotz84/recursion-algorithms)](https://app.circleci.com/pipelines/github/lotz84/recursion-algorithms)
+[![GitHub Actions](https://github.com/lotz84/recursion-algorithms/actions/workflows/test.yaml/badge.svg)](https://github.com/lotz84/recursion-algorithms/actions/workflows/test.yaml)
 [![GitHub contributors](https://img.shields.io/github/contributors/lotz84/recursion-algorithms)](https://github.com/lotz84/recursion-algorithms/graphs/contributors)
 
 This respository is a collection of various algorithms written using recursion schemes. Recursion schemes brings a brilliant perspective guided by Category Theory to recursive data structures and algorithms. I was particularly impressed by ["A Duality of Sorts" written by R. Hinze et al.](https://www.semanticscholar.org/paper/A-Duality-of-Sorts-Hinze-Magalh%C3%A3es/62a1d9ecaea95fbceb42c644ca38dd577b85fe4d) that pointed out that there is a nice duality between the well-known sorting algorithms.
