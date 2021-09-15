@@ -6,7 +6,7 @@ module DataStructures.Levels where
 import Control.Applicative
 ```
 
-`Levels` is not recursive data type, but it is important to implement [breadth-first search](/recursion-algorithms/Algorithms/Tree/BreadthFirstSearch.html). Implementations in here reference to [Kidne and Wu 2021][^1].
+`Levels` is not recursive data type, but it is important to implement [breadth-first search](/recursion-algorithms/Algorithms/Tree/BreadthFirstSearch.html). Implementations in here reference to [Kidne and Wu 2021][^1]. Note that `Levels` doesn't follow the Applicative and Monad law, since below implementation using list for inner groups.
 
 ```hs
 newtype Levels a = Levels [[a]]
